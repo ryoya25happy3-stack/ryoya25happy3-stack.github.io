@@ -201,6 +201,10 @@ footer .disc{color:#A794C9}
 #paid h3::before,.chapter h3::before{content:"✦ ";color:var(--gold);font-size:14px}
 .sealrow{display:flex;justify-content:flex-end;margin-bottom:var(--s1)}
 .seal-img{width:88px;height:auto;display:block;transform:rotate(-4deg)}
+.legal-table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.75}
+.legal-table th,.legal-table td{border-bottom:1px solid var(--line);padding:10px 8px;text-align:left;vertical-align:top}
+.legal-table tr:last-child th,.legal-table tr:last-child td{border-bottom:none}
+.legal-table th{width:34%;color:var(--gold-d);font-family:var(--font-h);white-space:nowrap}
 </style>
 
 <style id="motion-pack">
@@ -677,13 +681,38 @@ select option{color:#3A2A4C;background:#FFFFFF}
 
   <!-- ===== FAQ ===== -->
   
+
+<div class="view" id="view-legal">
+<section aria-label="特定商取引法に基づく表記">
+<div class="wrap">
+<h2><span class="small">LEGAL</span>特定商取引法に基づく表記</h2>
+<div class="card" style="margin-bottom:var(--s3)">
+<table class="legal-table">
+<tr><th>販売業者</th><td>四星堂</td></tr>
+<tr><th>運営責任者</th><td>【要入力：氏名】</td></tr>
+<tr><th>所在地</th><td>請求があった場合に、遅滞なく開示します</td></tr>
+<tr><th>電話番号</th><td>請求があった場合に、遅滞なく開示します</td></tr>
+<tr><th>メールアドレス</th><td>【要入力：連絡先メールアドレス】</td></tr>
+<tr><th>販売価格</th><td>鑑定書（相性占い／あなたの鑑定）各200円（税込）</td></tr>
+<tr><th>商品代金以外の必要料金</th><td>なし（サイトの閲覧や通信にかかる費用は、お客様のご負担となります）</td></tr>
+<tr><th>お支払い方法</th><td>クレジットカード、PayPay、コンビニ決済（決済代行：Stripe）</td></tr>
+<tr><th>お支払い時期</th><td>ご注文の際にお支払いが確定します</td></tr>
+<tr><th>商品の引き渡し時期</th><td>決済完了後、ブラウザ上で即時に表示します</td></tr>
+<tr><th>返品・キャンセル</th><td>デジタルコンテンツの性質上、購入後の返品・返金はお受けしておりません。表示の不具合など、当方の責めに帰すべき事由がある場合は、上記のメールアドレスまでご連絡ください。個別に対応します</td></tr>
+<tr><th>動作環境</th><td>最新のスマートフォン・PC向けブラウザ（JavaScriptを有効にしてお使いください）</td></tr>
+</table>
+</div>
+<p class="lead">入力した生年月日などの情報は、占いの計算にのみ使用します。サーバーへ保存することはありません。</p>
+</div>
+</section>
+</div>
 </main>
 <footer>
   <div class="wrap">
     <p class="fname">四星堂</p>
     <p>このページにはアフィリエイト広告（PR）が含まれます。紹介している電話占い等のサービスは、各運営会社の提供です。料金や特典は各公式サイトでご確認ください。</p>
     <p>占い結果はエンターテインメントとしてお楽しみください。月星座は天文計算で割り出しています（出生時刻の入力がない場合は近似値です）。</p>
-    <p>特定商取引法に基づく表記：（準備中）</p>
+    <p><a href="#legal" style="color:inherit;text-decoration:underline">特定商取引法に基づく表記</a></p>
     <p>© 2026 四星堂</p>
   </div>
 </footer>
@@ -1364,7 +1393,7 @@ $("form2").addEventListener("submit", function(ev){
 
 <script>
 (function(){
-  var VIEWS = {"": "view-top", "top": "view-top", "select": "view-select", "aishou": "view-aishou", "personal": "view-personal", "result": "view-result", "result2": "view-result2", "paid": "view-paid", "paid2": "view-paid2", "about": "view-about"};
+  var VIEWS = {"": "view-top", "top": "view-top", "select": "view-select", "aishou": "view-aishou", "personal": "view-personal", "result": "view-result", "result2": "view-result2", "paid": "view-paid", "paid2": "view-paid2", "about": "view-about", "legal": "view-legal"};
   function apply(){
     var key = (location.hash || "").replace("#", "");
     var id = VIEWS[key] || "view-top";
