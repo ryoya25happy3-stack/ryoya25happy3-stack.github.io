@@ -310,6 +310,14 @@ select option{color:#3A2A4C;background:#FFFFFF}
   .card,.chapter{box-shadow:none!important;break-inside:avoid}
 }
 </style>
+<style id="fix-hero">
+.btn{background:linear-gradient(135deg,#8A67C4,#5E3FA3);box-shadow:0 10px 24px rgba(94,63,163,.35)}
+.fan{animation:fanFloat 3.8s ease-in-out infinite alternate}
+@keyframes fanFloat{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+.fan img.l,.fan img.c,.fan img.r{animation:none}
+.simple-hero h1{font-size:clamp(27px,7.8vw,32px);letter-spacing:.01em}
+@media (prefers-reduced-motion: reduce){.fan{animation:none}}
+</style>
 </head>
 <body>
 <header class="site">
