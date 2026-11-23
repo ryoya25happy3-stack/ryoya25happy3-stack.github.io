@@ -259,6 +259,27 @@ select option{color:#3A2A4C;background:#FFFFFF}
 .load-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--lav),var(--gold));border-radius:99px}
 @media (prefers-reduced-motion: reduce){.load-ball,.load-ball .mist{animation:none}}
 </style>
+<style id="motion-pack-2">
+@keyframes dealIn{from{opacity:0;transform:translateY(-30px) rotate(-5deg) scale(.92)}to{opacity:1;transform:translateY(0) rotate(0) scale(1)}}
+.tflip.deal{animation:dealIn .55s cubic-bezier(.22,1,.36,1) both}
+@keyframes cardFloat{from{transform:translateY(0)}to{transform:translateY(-5px)}}
+.tflip.flipped{animation:cardFloat 3.2s ease-in-out 1.5s infinite alternate}
+.tflip-face::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,236,180,.5) 50%,transparent 70%);transform:translateX(-130%);pointer-events:none}
+.tflip.flipped .tflip-face::after{animation:sheen 1s ease-out .6s both}
+@keyframes sheen{from{transform:translateX(-130%)}to{transform:translateX(130%)}}
+.fan img.l{animation:swayL 3.2s ease-in-out infinite alternate}
+.fan img.c{animation:swayC 3.6s ease-in-out infinite alternate}
+.fan img.r{animation:swayR 3.2s ease-in-out infinite alternate}
+@keyframes swayL{from{transform:rotate(-12.6deg) translateY(9px)}to{transform:rotate(-9.4deg) translateY(5px)}}
+@keyframes swayC{from{transform:translateY(-3px)}to{transform:translateY(-8px)}}
+@keyframes swayR{from{transform:rotate(9.4deg) translateY(5px)}to{transform:rotate(12.6deg) translateY(9px)}}
+.fan.spread img{animation:none}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease-out,transform .55s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+.load-stars i{position:absolute;bottom:10%;width:5px;height:5px;border-radius:50%;background:#C9A227;opacity:0;animation:rise 1.9s ease-in infinite}
+@keyframes rise{0%{transform:translateY(0) scale(.6);opacity:0}25%{opacity:.9}100%{transform:translateY(-44vh) scale(1.15);opacity:0}}
+@media (prefers-reduced-motion: reduce){.tflip.deal,.tflip.flipped,.fan img,.load-stars i{animation:none}.tflip-face::after{display:none}.reveal{opacity:1;transform:none;transition:none}}
+</style>
 </head>
 <body>
 <header class="site">
@@ -820,6 +841,7 @@ function burstSparks(tf){
 function armTarotFlip(gridId){
   const tf = document.querySelector("#" + gridId + " .tflip");
   if(!tf) return;
+  tf.classList.add("deal");
   setTimeout(function(){ tf.classList.add("flipped"); setTimeout(function(){ burstSparks(tf); }, 640); }, 600);
   tf.addEventListener("click", function(){ tf.classList.toggle("flipped"); });
 }
@@ -1176,6 +1198,7 @@ $("form2").addEventListener("submit", function(ev){
 })();
 </script>
 <div id="loading" hidden role="status" aria-live="polite">
+  <div class="load-stars" aria-hidden="true"><i style="left:12%"></i><i style="left:24%;animation-delay:.5s"></i><i style="left:38%;animation-delay:1.1s"></i><i style="left:50%;animation-delay:.2s"></i><i style="left:62%;animation-delay:.8s"></i><i style="left:74%;animation-delay:1.4s"></i><i style="left:86%;animation-delay:.65s"></i></div>
   <div class="load-stage"><span class="spk" style="left:-18px;top:4px;font-size:14px">✦</span><span class="spk" style="right:-16px;top:36px;font-size:10px;animation-delay:.7s">✦</span><span class="spk" style="left:-10px;bottom:30px;font-size:10px;animation-delay:1.2s">✦</span><div class="load-ball"><i class="mist"></i><i class="hl"></i></div><div class="load-stand"></div></div>
   <p class="load-title">鑑定しています</p>
   <p class="load-step" id="load-step">星の配置を読んでいます</p>
@@ -1193,6 +1216,14 @@ function showLoading(done){
   const dur = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 600 : 1950;
   setTimeout(function(){ clearInterval(stepTimer); ov.hidden = true; done(); }, dur);
 }
+</script>
+<script>
+(function(){
+  var els = document.querySelectorAll("section .wrap");
+  if(!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches){ return; }
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } }); }, { threshold: .1 });
+  els.forEach(function(el){ el.classList.add("reveal"); io.observe(el); });
+})();
 </script>
 </body>
 </html>
