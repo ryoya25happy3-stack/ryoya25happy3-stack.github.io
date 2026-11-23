@@ -976,7 +976,7 @@ const ROMAN = ["0","I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"
 function tarotFlipHTML(card, idx, rev){
   return '<div class="tflip" role="img" aria-label="タロットカード：' + card.name + '"><div class="tflip-inner">'
     + '<div class="tflip-back">✦</div>'
-    + '<div class="tflip-face' + (rev ? ' rev' : '') + '"><div class="facein"><img class="tart" src="images/tarot/' + (idx < 10 ? "0" : "") + idx + '.webp" alt=""><div class="facebar"><span class="num">' + ROMAN[idx] + '</span><span class="nm">' + card.name + '</span><span class="kw">' + card.kw + '</span></div></div></div>'
+    + '<div class="tflip-face' + (rev ? ' rev' : '') + '"><div class="facein"><img class="tart" src="' + TAROT_ART[idx] + '" alt=""><div class="facebar"><span class="num">' + ROMAN[idx] + '</span><span class="nm">' + card.name + '</span><span class="kw">' + card.kw + '</span></div></div></div>'
     + '</div></div>';
 }
 function burstSparks(tf){
