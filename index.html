@@ -280,6 +280,36 @@ select option{color:#3A2A4C;background:#FFFFFF}
 @keyframes rise{0%{transform:translateY(0) scale(.6);opacity:0}25%{opacity:.9}100%{transform:translateY(-44vh) scale(1.15);opacity:0}}
 @media (prefers-reduced-motion: reduce){.tflip.deal,.tflip.flipped,.fan img,.load-stars i{animation:none}.tflip-face::after{display:none}.reveal{opacity:1;transform:none;transition:none}}
 </style>
+<style id="paid-rich">
+.cover{border:3px double #A87C14;border-radius:14px;padding:18px 14px;text-align:center;background:#FFFDF6;margin-bottom:var(--s3)}
+.cover .who{font-family:"Shippori Mincho B1",serif;font-size:19px;font-weight:700;color:#3A2A4C}
+.cover .csub{font-size:13px;color:var(--ink-soft);margin-top:6px}
+.bar-row{display:flex;align-items:center;gap:10px;margin:9px 0}
+.bar-row .bl{flex:0 0 78px;font-size:13px;font-weight:700}
+.bar-track{flex:1;height:10px;border-radius:99px;background:#EFE6FB;overflow:hidden}
+.bar-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,#A884E8,#5E3FA3);width:0;transition:width 1.1s cubic-bezier(.22,1,.36,1)}
+.bar-row .bv{flex:0 0 42px;text-align:right;font-weight:900}
+.spread{display:flex;gap:8px;justify-content:center;margin:var(--s2) 0}
+.spread .cell{flex:0 0 auto;text-align:center}
+.spread .pos{font-size:12px;font-weight:900;color:#A87C14;margin-bottom:6px}
+.spread .tflip{width:102px;height:161px;margin:0 auto}
+.spreadcap{font-size:14px;color:var(--ink-soft);margin:8px 0}
+.spreadcap b{color:#3A2A4C}
+.cal-row{display:flex;gap:10px;padding:8px 0;border-top:1px solid rgba(167,139,219,.25)}
+.cal-row .cm{flex:0 0 88px;font-weight:900;font-size:14px}
+.cal-row .ct{font-size:14px;color:var(--ink-soft)}
+.cal-row .ct b{color:#3A2A4C}
+.pts{margin:2px 0 10px;padding-left:1.25em}
+.pts li{margin:4px 0;font-size:15px}
+.save-row{text-align:center;margin:var(--s3) 0}
+@media print{
+  header,footer,#loading,#select-fab,.btn,.aff-mini,.save-row,.fab{display:none!important}
+  body{background:#fff!important}
+  .view{display:none!important}
+  .view.active{display:block!important}
+  .card,.chapter{box-shadow:none!important;break-inside:avoid}
+}
+</style>
 </head>
 <body>
 <header class="site">
@@ -509,17 +539,17 @@ select option{color:#3A2A4C;background:#FFFFFF}
   <div class="card aff-mini"><h3>自分の節目を、プロに相談したい方へ</h3><p class="lead" style="text-align:left;margin-bottom:var(--s2)">人柄や運勢の先にある具体的な悩み（仕事の転機、恋愛の進め方）は、プロの占い師に直接相談できます。</p><div class="aff-row"><div><b>ココナラ電話占い</b><span>1分100円〜、初回特典あり。実績の多い大手</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4579SF+2VLHKY+2PEO+BXYEA" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>電話占いヴェルニ</b><span>2004年創業、占い師1,400名以上。初回ポイント特典あり</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BELTS+3L74LE+2H0Q+61Z82" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>電話占いデスティニー</b><span>1分189円〜、恋愛相談に強い占い師が多数</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BELTS+3KLOZM+1SZG+5ZEMQ" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>ミラーメール占い</b><span>メールでじっくり相談したい人向けの鑑定</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=455IFI+EKIY9U+4PWE+BWVTE" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>アイピック性格分析</b><span>性格分析から相性を見るサービス</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=455IFJ+92V1FM+2M6+15OK2A" target="_blank" rel="sponsored noopener">公式サイト</a></div><p class="pr-note">※このブロックは広告（アフィリエイト）を含みます</p></div><p style="text-align:center;margin-top:var(--s3)"><a class="btn ghost" href="#top">トップへ戻る</a></p>
 </section></div>
 <div class="view" id="view-paid"><section aria-label="鑑定書"><div class="wrap"><div class="sealrow"><span class="seal">星よみ</span></div><h2><span class="small">DEEP READING</span>鑑定書（相性占い）</h2><p class="note" id="paid-demo-note" style="display:none;text-align:center">※現在はデモ表示です。支払いリンク未設定のため、実際の課金は行われていません</p><div id="paid">
-        <div class="card chapter"><h3>彼の本音傾向</h3><p id="paid-honne"></p></div>
-        <div class="card chapter"><h3>2人の課題</h3><p id="paid-kadai"></p></div>
+        <div class="cover"><p class="who" id="paid-cover"></p><p class="csub" id="paid-cover-sub"></p></div><div class="card chapter"><h3>相性スコアの内訳</h3><div id="paid-bars"></div><p id="paid-bars-note"></p></div><div class="card chapter"><h3>彼の本音傾向</h3><p id="paid-honne"></p></div>
+        <div class="card chapter"><h3>星の3層で見る2人</h3><div id="paid-layers"></div></div><div class="card chapter"><h3>2人の強み・すれ違い</h3><div id="paid-points"></div></div><div class="card chapter"><h3>2人の課題</h3><p id="paid-kadai"></p></div>
         <div class="card chapter"><h3>距離を縮めるアドバイス</h3><p id="paid-advice"></p></div>
-        <div class="card chapter"><h3>今月の2人の運勢</h3><p id="paid-month"></p></div>
-      </div><p style="text-align:center;margin-top:var(--s3)"><a class="btn ghost" href="#result">結果に戻る</a> <a class="btn ghost" href="#top">トップへ戻る</a></p></div></section></div>
-<div class="view" id="view-paid2"><section aria-label="あなたの鑑定書"><div class="wrap"><div class="sealrow"><span class="seal">星よみ</span></div><h2><span class="small">DEEP READING</span>鑑定書（あなたの鑑定）</h2><p class="note" id="paid-demo-note2" style="display:none;text-align:center">※現在はデモ表示です。支払いリンク未設定のため、実際の課金は行われていません</p><div id="paid2" style="display:none">
+        <div class="card chapter"><h3>場面別アドバイス</h3><p id="paid-scenes"></p></div><div class="card chapter"><h3>タロット3枚引き（過去・現在・未来）</h3><div class="spread" id="paid-spread"></div><div id="paid-spread-read"></div></div><div class="card chapter"><h3>今月の2人の運勢</h3><p id="paid-month"></p></div>
+      <div class="save-row"><button type="button" class="btn gold" onclick="window.print()">鑑定書を保存する（PDF）</button><p class="note">印刷画面が開きます。iPhoneは共有ボタンから「プリント」を選ぶとPDFで保存できます</p></div><div class="card aff-mini"><h3>もっと深く知りたい方へ</h3><p class="lead" style="text-align:left;margin-bottom:var(--s2)">鑑定書で見えた課題や彼の本音は、プロの占い師に直接相談できます。</p><div class="aff-row"><div><b>ココナラ電話占い</b><span>1分100円〜、初回特典あり。実績の多い大手</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4579SF+2VLHKY+2PEO+BXYEA" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>電話占いヴェルニ</b><span>2004年創業、占い師1,400名以上。初回ポイント特典あり</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BELTS+3L74LE+2H0Q+61Z82" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>電話占いデスティニー</b><span>1分189円〜、恋愛相談に強い占い師が多数</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BELTS+3KLOZM+1SZG+5ZEMQ" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>ミラーメール占い</b><span>メールでじっくり相談したい人向けの鑑定</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=455IFI+EKIY9U+4PWE+BWVTE" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>アイピック性格分析</b><span>性格分析から相性を見るサービス</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=455IFJ+92V1FM+2M6+15OK2A" target="_blank" rel="sponsored noopener">公式サイト</a></div><p class="pr-note">※このブロックは広告（アフィリエイト）を含みます</p></div></div><p style="text-align:center;margin-top:var(--s3)"><a class="btn ghost" href="#result">結果に戻る</a> <a class="btn ghost" href="#top">トップへ戻る</a></p></div></section></div>
+<div class="view" id="view-paid2"><section aria-label="あなたの鑑定書"><div class="wrap"><div class="sealrow"><span class="seal">星よみ</span></div><h2><span class="small">DEEP READING</span>鑑定書（あなたの鑑定）</h2><p class="note" id="paid-demo-note2" style="display:none;text-align:center">※現在はデモ表示です。支払いリンク未設定のため、実際の課金は行われていません</p><div id="paid2" style="display:none"><div class="cover"><p class="who" id="paid-cover2"></p><p class="csub" id="paid-cover2-sub"></p></div>
         <div class="card chapter" style="margin-bottom:var(--s3)"><h3 style="font-size:19px;font-weight:900;margin-bottom:var(--s1);color:var(--gold-soft)">人生のテーマ</h3><p id="paid-theme2" style="color:var(--ink-soft)"></p></div>
-        <div class="card chapter" style="margin-bottom:var(--s3)"><h3 style="font-size:19px;font-weight:900;margin-bottom:var(--s1);color:var(--gold-soft)">恋愛傾向の詳細</h3><p id="paid-love2" style="color:var(--ink-soft)"></p></div>
-        <div class="card chapter" style="margin-bottom:var(--s3)"><h3 style="font-size:19px;font-weight:900;margin-bottom:var(--s1);color:var(--gold-soft)">仕事・適性のヒント</h3><p id="paid-work2" style="color:var(--ink-soft)"></p></div>
+        <div class="card chapter" style="margin-bottom:var(--s3)"></p></div><div class="card chapter" style="margin-bottom:var(--s3)"><h3 style="font-size:19px;font-weight:900;margin-bottom:var(--s1);color:var(--gold-soft)">あなたの3つの顔</h3><p id="paid-face2" style="color:var(--ink-soft)"></p></div><div class="card chapter" style="margin-bottom:var(--s3)"><h3 style="font-size:19px;font-weight:900;margin-bottom:var(--s1);color:var(--gold-soft)">恋愛傾向の詳細</h3><p id="paid-love2" style="color:var(--ink-soft)"></p></div>
+        <div class="card chapter" style="margin-bottom:var(--s3)"></p></div><div class="card chapter" style="margin-bottom:var(--s3)"><h3 style="font-size:19px;font-weight:900;margin-bottom:var(--s1);color:var(--gold-soft)">金運の傾向</h3><p id="paid-money2" style="color:var(--ink-soft)"></p></div><div class="card chapter" style="margin-bottom:var(--s3)"><h3 style="font-size:19px;font-weight:900;margin-bottom:var(--s1);color:var(--gold-soft)">仕事・適性のヒント</h3><p id="paid-work2" style="color:var(--ink-soft)"></p></div>
         <div class="card chapter" style="margin-bottom:var(--s3)"><h3 style="font-size:19px;font-weight:900;margin-bottom:var(--s1);color:var(--gold-soft)">今年と今月の運勢</h3><p id="paid-year2" style="color:var(--ink-soft)"></p></div>
-      </div><p style="text-align:center;margin-top:var(--s3)"><a class="btn ghost" href="#result2">結果に戻る</a> <a class="btn ghost" href="#top">トップへ戻る</a></p></div></section></div>
+      <div class="card chapter" style="margin-bottom:var(--s3)"><h3 style="font-size:19px;font-weight:900;margin-bottom:var(--s1);color:var(--gold-soft)">これからの12ヶ月</h3><div id="paid-cal2"></div></div><div class="card chapter" style="margin-bottom:var(--s3)"><h3 style="font-size:19px;font-weight:900;margin-bottom:var(--s1);color:var(--gold-soft)">タロット3枚引き（現在・課題・アドバイス）</h3><div class="spread" id="paid-spread2"></div><div id="paid-spread2-read"></div></div><div class="save-row"><button type="button" class="btn gold" onclick="window.print()">鑑定書を保存する（PDF）</button><p class="note">印刷画面が開きます。iPhoneは共有ボタンから「プリント」を選ぶとPDFで保存できます</p></div><div class="card aff-mini"><h3>もっと深く知りたい方へ</h3><p class="lead" style="text-align:left;margin-bottom:var(--s2)">鑑定書で見えたテーマや迷いは、プロの占い師に直接相談できます。</p><div class="aff-row"><div><b>ココナラ電話占い</b><span>1分100円〜、初回特典あり。実績の多い大手</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4579SF+2VLHKY+2PEO+BXYEA" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>電話占いヴェルニ</b><span>2004年創業、占い師1,400名以上。初回ポイント特典あり</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BELTS+3L74LE+2H0Q+61Z82" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>電話占いデスティニー</b><span>1分189円〜、恋愛相談に強い占い師が多数</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=4BELTS+3KLOZM+1SZG+5ZEMQ" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>ミラーメール占い</b><span>メールでじっくり相談したい人向けの鑑定</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=455IFI+EKIY9U+4PWE+BWVTE" target="_blank" rel="sponsored noopener">公式サイト</a></div><div class="aff-row"><div><b>アイピック性格分析</b><span>性格分析から相性を見るサービス</span></div><a class="btn" href="https://px.a8.net/svt/ejp?a8mat=455IFJ+92V1FM+2M6+15OK2A" target="_blank" rel="sponsored noopener">公式サイト</a></div><p class="pr-note">※このブロックは広告（アフィリエイト）を含みます</p></div></div><p style="text-align:center;margin-top:var(--s3)"><a class="btn ghost" href="#result2">結果に戻る</a> <a class="btn ghost" href="#top">トップへ戻る</a></p></div></section></div>
 <div class="view" id="view-about">
 <section aria-label="占いのしくみ">
 <div class="wrap">
@@ -838,6 +868,53 @@ function burstSparks(tf){
     anim.onfinish = function(){ s.remove(); };
   });
 }
+const EL_PAIR = {
+"火火":"情熱が加速する組み合わせ。楽しいときは最高に楽しいけれど、熱の方向がずれると衝突も早くなります",
+"地地":"安定と継続の組み合わせ。派手さはないけれど、信頼を積むほど強くなる関係です",
+"風風":"会話と刺激の組み合わせ。飽きが来にくく、友達のような軽さが長続きの鍵になります",
+"水水":"共感の組み合わせ。言葉にしない気持ちまで伝わりやすい反面、感情の波も同期しやすくなります",
+"火地":"火の勢いを地が形にする組み合わせ。夢と現実の分担ができると強い2人です",
+"火風":"風が火を育てる相生の組み合わせ。好奇心と会話が関係を前に進めます",
+"火水":"熱と深さの組み合わせ。温度差の読み違いがすれ違いの元になりやすいので、言葉で確認し合うほど安定します",
+"地風":"地の安定に風の軽さが風穴を開ける組み合わせ。新鮮さの供給が鍵になります",
+"地水":"水が地を潤す相生の組み合わせ。穏やかで、生活の土台が育ちやすい2人です",
+"風水":"風の言葉と水の感情の組み合わせ。伝え方ひとつで距離が大きく変わります"
+};
+function elPair(a, b){ return EL_PAIR[[a, b].sort().join("")] || ""; }
+const NUM_MONEY = {
+1:"お金は「始める力」に集まります。新しい収入源の種まきや、自分への投資が実りやすい数字です",
+2:"お金は「人との縁」から巡ります。誰と組むかで収入の安定感が変わる数字です",
+3:"お金は「楽しさと発信」に集まります。好きなことの発信が収入の入り口になりやすい数字です",
+4:"お金は「積み上げ」に宿ります。派手な勝負より、貯める仕組み作りが強い数字です",
+5:"お金は「動きと変化」に集まります。複数の収入源や、身軽な働き方が合う数字です",
+6:"お金は「守るもの」のために巡ります。家族や大切な人への支出が、結果的に豊かさを呼びます",
+7:"お金は「専門性」に集まります。深く学んだことが、そのまま価値に変わる数字です",
+8:"お金は「規模と循環」に集まります。増やす力と使う力の両方が育ちやすい、実りの数字です",
+9:"お金は「巡らせるほど」戻ってきます。与えることが巡り巡って豊かさになる数字です"
+};
+function spreadIdx(base, a, b){
+  const out = [base];
+  let x = (base + 5 + a) % 22; if(out.indexOf(x) >= 0) x = (x + 1) % 22; out.push(x);
+  let y = (base + 11 + b) % 22; while(out.indexOf(y) >= 0) y = (y + 1) % 22; out.push(y);
+  return out;
+}
+function renderSpread(elId, readId, idxs, seed, labels, captions){
+  const revs = idxs.map(function(ix, i){ return ((ix + seed + i * 3) % 4 === 0); });
+  document.getElementById(elId).innerHTML = idxs.map(function(ix, i){
+    return '<div class="cell"><p class="pos">' + labels[i] + '</p>' + tarotFlipHTML(TAROT[ix], ix, revs[i]) + '</div>';
+  }).join("");
+  document.getElementById(readId).innerHTML = idxs.map(function(ix, i){
+    return '<p class="spreadcap"><b>' + labels[i] + '｜' + TAROT[ix].name + '（' + (revs[i] ? "逆位置" : "正位置") + '）</b><br>' + captions[i] + "：" + (revs[i] ? TAROT[ix].rev : TAROT[ix].up) + '</p>';
+  }).join("");
+  const cards = document.querySelectorAll("#" + elId + " .tflip");
+  cards.forEach(function(tf, i){
+    tf.classList.add("deal");
+    setTimeout(function(){ tf.classList.add("flipped"); setTimeout(function(){ burstSparks(tf); }, 640); }, 500 + i * 280);
+    tf.addEventListener("click", function(){ tf.classList.toggle("flipped"); });
+  });
+}
+function fmtDate(dt){ return dt.getFullYear() + "年" + (dt.getMonth() + 1) + "月" + dt.getDate() + "日"; }
+
 function armTarotFlip(gridId){
   const tf = document.querySelector("#" + gridId + " .tflip");
   if(!tf) return;
@@ -928,6 +1005,35 @@ function render(my, his, names, meta){
   $("paid-month").textContent =
     "今月の2人を象徴するカードは「"+monthCard.name+"（"+monthCard.kw+"）」。"+monthCard.up+"。" +
     "今月のラッキーアクションは「"+lucky+"」こと。相性スコア"+r.total+"点の2人にとって、今月は"+(r.total >= 75 ? "追い風の月。小さな誘いが大きく実りやすい時期です" : "土台を整える月。焦らず信頼を積み上げるほど、来月以降の追い風になります")+"。";
+
+  /* 鑑定書の増量分 */
+  $("paid-cover").textContent = names.me + " さん × " + names.him + " さんの鑑定書";
+  $("paid-cover-sub").textContent = "生年月日：" + my.y + "年" + my.m + "月" + my.d + "日 × " + his.y + "年" + his.m + "月" + his.d + "日／鑑定日：" + fmtDate(new Date());
+  $("paid-bars").innerHTML = scores.map(function(s){
+    return '<div class="bar-row"><span class="bl">' + s[0] + '</span><span class="bar-track"><span class="bar-fill" data-w="' + s[1] + '"></span></span><span class="bv">' + s[1] + "点</span></div>";
+  }).join("");
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){
+    document.querySelectorAll("#paid-bars .bar-fill").forEach(function(f){ f.style.width = f.dataset.w + "%"; });
+  }); });
+  $("paid-bars-note").textContent = "総合" + r.total + "点の内訳です。いちばん高い" + best[0] + "が2人の土台、いちばん低い" + worst[0] + "が工夫のしどころです。";
+  $("paid-layers").innerHTML =
+    "<p><b>太陽×太陽（表の相性）</b><br>" + r.sunPair.t + "。" + elPair(SIGNS[r.ms].el, SIGNS[r.hs].el) + "。</p>" +
+    "<p style='margin-top:10px'><b>太陽×月（表と本音）</b><br>あなたの表の顔（" + SIGNS[r.ms].name + "）と彼の本音（" + SIGNS[r.hm].name + "）、彼の表の顔（" + SIGNS[r.hs].name + "）とあなたの本音（" + SIGNS[r.mm].name + "）。" + elPair(SIGNS[r.ms].el, SIGNS[r.hm].el) + "。本音の層で安心できるかどうかが、長続きの分かれ目です。</p>" +
+    "<p style='margin-top:10px'><b>月×月（本音の相性）</b><br>" + elPair(SIGNS[r.mm].el, SIGNS[r.hm].el) + "。一緒にいて素でいられるかは、この層で決まります。</p>";
+  $("paid-points").innerHTML =
+    "<p><b>2人の強み</b></p><ul class='pts'>" +
+    "<li>" + best[0] + "の結果が示す土台の良さ（" + best[1] + "点）</li>" +
+    "<li>" + elPair(SIGNS[r.ms].el, SIGNS[r.hs].el) + "</li>" +
+    "<li>" + NUM_REL_TEXT[r.numRel] + "</li></ul>" +
+    "<p><b>すれ違いやすいところ</b></p><ul class='pts'>" +
+    "<li>" + worst[0] + "の部分（" + worst[1] + "点）。ここは相性の低さではなく、工夫の効く伸びしろです</li>" +
+    "<li>あなたが求める「" + MOON_NEED[r.mm] + "」と、彼が求める「" + MOON_NEED[r.hm] + "」。求める安心の形が違うと、愛情があっても空回りします</li></ul>";
+  $("paid-scenes").textContent =
+    "ケンカしたとき：彼の月（" + SIGNS[r.hm].name + "）は「" + MOON_NEED[r.hm] + "」と落ち着きます。その場で結論を迫るより、一晩置く方が早く仲直りできます。" +
+    "連絡の取り方：あなたは「" + MOON_NEED[r.mm] + "」と安心するタイプ。頻度より、短くても反応があることが効きます。" +
+    "特別な日：2人の数字の和が示す雰囲気は「" + NUMBERS[r.ln1].kw + "×" + NUMBERS[r.ln2].kw + "」。派手な演出より、2人だけの合言葉のような小さな儀式が残ります。";
+  renderSpread("paid-spread", "paid-spread-read", spreadIdx(r.tIdx, r.ln1, r.ln2), r.total,
+    ["過去", "現在", "未来"], ["2人の土台に出ているもの", "今の2人の空気", "この先の鍵"]);
 
   $("result").classList.add("show");
   location.hash = "result";
@@ -1113,6 +1219,28 @@ function renderPersonal(d, name, meta){
     "今年はパーソナルイヤー"+r.py+"「"+PYEAR[r.py].t+"」。"+PYEAR[r.py].text+"。" +
     "今月はパーソナルマンス"+r.pm+"「"+PYEAR[r.pm].t+"」の流れで、月単位では"+PYEAR[r.pm].text.split("。")[0]+"ことが意識にのぼりやすい時期です。" +
     "今年のタロット「"+card.name+"（"+card.kw+"）」も重ねると、"+card.up+"。この流れを踏まえた動き方が、今年のあなたには合っています。";
+
+  /* 鑑定書の増量分 */
+  $("paid-cover2").textContent = name + " さんの鑑定書";
+  $("paid-cover2-sub").textContent = "生年月日：" + d.y + "年" + d.m + "月" + d.d + "日／鑑定日：" + fmtDate(new Date());
+  $("paid-face2").textContent = r.asc != null ?
+    "表の顔は太陽星座" + SIGNS[r.s].name + "の「" + SIGNS[r.s].trait + "」。心の内側は月星座" + SIGNS[r.mo].name + "で、「" + MOON_NEED[r.mo] + "」ときに素の自分に戻ります。そして第一印象はアセンダント" + SIGNS[r.asc].name + "。「" + ASC_TRAIT[r.asc] + "」と見られやすく、内側とのギャップに自分で驚くことも。この3つの重なりが、あなたの人柄の立体感です。" :
+    "表の顔は太陽星座" + SIGNS[r.s].name + "の「" + SIGNS[r.s].trait + "」。心の内側は月星座" + SIGNS[r.mo].name + "で、「" + MOON_NEED[r.mo] + "」ときに素の自分に戻ります。出生時刻を入れると、第一印象を示すアセンダントまで読めて、3つ目の顔が見えてきます。";
+  $("paid-money2").textContent =
+    "運命数" + r.lp + "の金運は、" + NUM_MONEY[r.lp] + "。今年（パーソナルイヤー" + r.py + "「" + PYEAR[r.py].t + "」）は、" + (r.py === 8 ? "収穫の年なので、値上げや交渉に踏み出す好機です" : r.py === 1 ? "始まりの年なので、収入源の種まきに使ったお金が後の土台になります" : "お金の使い方をテーマに合わせると、巡りが良くなります") + "。";
+  (function(){
+    const nowD = new Date(); const rows = [];
+    for(let k = 0; k < 12; k++){
+      const dt = new Date(nowD.getFullYear(), nowD.getMonth() + k, 1);
+      const yr = dt.getFullYear(), mo = dt.getMonth() + 1;
+      const pyY = ((r.py - 1 + (yr - nowD.getFullYear())) % 9) + 1;
+      const pmN = ((pyY + mo - 1) % 9) + 1;
+      rows.push('<div class="cal-row"><span class="cm">' + yr + "年" + mo + '月</span><span class="ct"><b>' + PYEAR[pmN].t + "</b> " + PYEAR[pmN].text.split("。")[0] + "。</span></div>");
+    }
+    $("paid-cal2").innerHTML = rows.join("");
+  })();
+  renderSpread("paid-spread2", "paid-spread2-read", spreadIdx(r.tIdx, r.lp, r.st), r.lp + r.py,
+    ["現在", "課題", "アドバイス"], ["今のあなたの立ち位置", "引っかかっているもの", "次の一歩のヒント"]);
 
   const sec = $("result2");
   sec.style.display = "block";
