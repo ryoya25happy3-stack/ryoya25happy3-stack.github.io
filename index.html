@@ -898,26 +898,41 @@ function burstSparks(tf){
 }
 function playTarot(tf, delay){
   var inner = tf.querySelector(".tflip-inner");
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   tf.addEventListener("click", function(){
     var on = tf.classList.toggle("flipped");
-    if(window.gsap && inner && !window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+    if(window.gsap && inner && !reduced){
       gsap.to(inner, {rotationY: on ? 180 : 0, duration:.7, ease:"power2.inOut"});
     }
   });
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if(!window.gsap || reduced){
-    tf.classList.add("deal");
-    setTimeout(function(){ tf.classList.add("flipped"); setTimeout(function(){ burstSparks(tf); }, 640); }, delay);
-    return;
+  var played = false;
+  function play(){
+    if(played) return; played = true;
+    if(!window.gsap || reduced){
+      tf.classList.add("deal");
+      setTimeout(function(){ tf.classList.add("flipped"); setTimeout(function(){ burstSparks(tf); }, 640); }, delay);
+      return;
+    }
+    tf.classList.add("gs");
+    var tl = gsap.timeline({ delay: delay / 1000 });
+    tl.fromTo(tf, {y:-30, rotation:-4, scale:.9, autoAlpha:0}, {y:0, rotation:0, scale:1, autoAlpha:1, duration:.55, ease:"power3.out"})
+      .add(function(){ tf.classList.add("flipped"); }, "+=0.15")
+      .to(inner, {rotationY: 180, duration:.75, ease:"power2.inOut"}, "<")
+      .add(function(){ burstSparks(tf); })
+      .to(tf, {y:-4, duration:1.7, ease:"sine.inOut", yoyo:true, repeat:-1}, "+=0.1");
   }
-  tf.classList.add("gs");
-  gsap.set(inner, {rotationY: 0});
-  var tl = gsap.timeline({ delay: delay / 1000 });
-  tl.fromTo(tf, {y:-30, rotation:-4, scale:.9, autoAlpha:0}, {y:0, rotation:0, scale:1, autoAlpha:1, duration:.55, ease:"power3.out"})
-    .add(function(){ tf.classList.add("flipped"); }, "+=0.15")
-    .to(inner, {rotationY: 180, duration:.75, ease:"power2.inOut"}, "<")
-    .add(function(){ burstSparks(tf); })
-    .to(tf, {y:-4, duration:1.7, ease:"sine.inOut", yoyo:true, repeat:-1}, "+=0.1");
+  if(window.gsap && !reduced){
+    tf.classList.add("gs");
+    gsap.set(tf, {autoAlpha: 0});
+    gsap.set(inner, {rotationY: 0});
+  }
+  if(!("IntersectionObserver" in window)){ play(); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ io.unobserve(tf); play(); }
+    });
+  }, { threshold: 0.35 });
+  io.observe(tf);
 }
 window.addEventListener("DOMContentLoaded", function(){
   if(!window.gsap) return;
