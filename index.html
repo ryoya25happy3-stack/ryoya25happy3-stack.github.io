@@ -1072,7 +1072,7 @@ function renderPersonal(d, name, meta){
   ];
   if(r.asc != null){ rows.push(["アセンダント", SIGNS[r.asc].name, "第一印象は「" + ASC_TRAIT[r.asc] + "」"]); }
   $("profile2").innerHTML = rows.map(function(x){
-    return '<p style="display:flex;gap:var(--s2);align-items:baseline"><span style="flex:0 0 76px;font-size:12px;font-weight:900;color:#2A1B47;background:var(--gold);border-radius:999px;padding:2px 10px;text-align:center">' + x[0] + '</span><span><b>' + x[1] + '</b> <span style="color:var(--ink-soft);font-size:14px">' + x[2] + '</span></span></p>';
+    return '<p style="display:flex;gap:var(--s2);align-items:baseline"><span style="flex:0 0 100px;white-space:nowrap;font-size:12px;font-weight:900;color:#2A1B47;background:var(--gold);border-radius:999px;padding:2px 10px;text-align:center">' + x[0] + '</span><span><b>' + x[1] + '</b> <span style="color:var(--ink-soft);font-size:14px">' + x[2] + '</span></span></p>';
   }).join("");
   const card = TAROT[r.tIdx];
   const systems = [
