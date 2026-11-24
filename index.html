@@ -531,7 +531,7 @@ select option{color:#3A2A4C;background:#FFFFFF}
           <li>今月の2人の運勢と、動くべきタイミング</li>
         </ul>
         <p class="price">¥200 <small>（税込・1回のみ）</small></p>
-        <p style="font-size:13px;margin-bottom:var(--s2)">お支払いはクレジットカード、PayPay、コンビニ決済に対応しています。購入後、このページに戻ると鑑定書が開きます。</p>
+        <p style="font-size:13px;margin-bottom:var(--s2)">お支払いはクレジットカード、Apple Pay、Linkに対応しています。購入後、このページに戻ると鑑定書が開きます。</p>
         <a class="btn gold" id="pay-btn" href="#">鑑定書を受け取る（¥200）</a>
         <p style="font-size:12px;margin-top:var(--s1);opacity:.85">※占いはエンターテインメントです。結果の受け取り方はあなた次第です。</p>
       </div>
@@ -559,7 +559,7 @@ select option{color:#3A2A4C;background:#FFFFFF}
           <li>今年と今月の運勢（パーソナルイヤー／マンスの流れ）</li>
         </ul>
         <p class="price">¥200 <small>（税込・1回のみ）</small></p>
-        <p style="font-size:13px;margin-bottom:var(--s2)">お支払いはクレジットカード、PayPay、コンビニ決済に対応しています。購入後、このページに戻ると鑑定書が開きます。</p>
+        <p style="font-size:13px;margin-bottom:var(--s2)">お支払いはクレジットカード、Apple Pay、Linkに対応しています。購入後、このページに戻ると鑑定書が開きます。</p>
         <a class="btn gold" id="pay-btn2" href="#">鑑定書を受け取る（¥200）</a>
         <p style="font-size:12px;margin-top:var(--s1);opacity:.85">※占いはエンターテインメントです。結果の受け取り方はあなた次第です。</p>
       </div>
@@ -800,8 +800,8 @@ const TAROT = [
 </script>
 <script>
 /* ================= 設定 ================= */
-const PAYMENT_LINK = ""; // 相性占い用（成功URLに ?paid=1 を含むリンク）
-const PAYMENT_LINK2 = ""; // あなたの鑑定用（成功URLに ?paid2=1 を含むリンク） // Stripeの支払いリンク（クレジット/PayPay/コンビニ対応）をここに入れる
+const PAYMENT_LINK = "https://buy.stripe.com/dRmfZh48ebXu96ndj3f3a00"; // 相性占い用（成功URLに ?paid=1 を含むリンク）
+const PAYMENT_LINK2 = "https://buy.stripe.com/8x24gz2066Dabev5QBf3a01"; // あなたの鑑定用（成功URLに ?paid2=1 を含むリンク）
 
 /* ================= 計算エンジン ================= */
 function digits(n){ return String(n).split("").reduce((a,c)=>a+Number(c),0); }
