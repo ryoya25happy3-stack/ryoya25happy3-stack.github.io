@@ -46,10 +46,10 @@ select{font-family:"Zen Kaku Gothic New",sans-serif;font-size:16px;padding:10px 
 .result .r-tag{display:inline-block;font-size:12.5px;color:#fff;background:var(--lav);border-radius:999px;padding:2px 12px;margin-left:8px;vertical-align:middle}
 .result p{margin:10px 0 0}
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:14px 0}
-table.aisho{border-collapse:separate;border-spacing:2px;font-size:13.5px;min-width:640px;width:100%}
-table.aisho th,table.aisho td{text-align:center;padding:6px 2px;border-radius:6px;white-space:nowrap}
-table.aisho thead th{background:var(--plum);color:#F5EDD8;font-weight:700;font-size:12.5px}
-table.aisho tbody th{background:#EFE6F7;color:var(--plum);font-size:12.5px;position:sticky;left:0}
+table.aisho{border-collapse:separate;border-spacing:2px;font-size:12px;table-layout:fixed;width:100%}
+table.aisho th,table.aisho td{text-align:center;padding:5px 0;border-radius:5px;white-space:nowrap;overflow:hidden}
+table.aisho thead th{background:var(--plum);color:#F5EDD8;font-weight:700;font-size:10.5px}
+table.aisho tbody th{background:#EFE6F7;color:var(--plum);font-size:10.5px}
 table.aisho td{font-family:"Zen Kaku Gothic New",sans-serif;font-weight:700;color:var(--plum)}
 td.b5{background:#D9C6F2}td.b4{background:#E7DBF7}td.b3{background:#F2ECFB}td.b2{background:#FBF6EC}td.b1{background:#F7EFE4;color:#9A8A6A}
 .legend{font-size:12.5px;color:var(--mut)}
@@ -137,15 +137,15 @@ footer.site a{color:#E9DFF7}
  <h2>早見表（全81通り）</h2>
  <p>縦があなた、横が相手の運命数です。数字は運命数どうしの相性スコア（100点満点）。色が濃いほど、関係のリズムが合いやすい組み合わせです。</p>
  <div class="tbl-wrap"><table class="aisho"><thead><tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr></thead><tbody>
-<tr><th>1（リーダー）</th><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b3">66</td><td class="b3">66</td><td class="b3">66</td><td class="b5">90</td></tr>
-<tr><th>2（サポーター）</th><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b3">66</td><td class="b5">90</td><td class="b3">66</td></tr>
-<tr><th>3（ムードメーカー）</th><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b5">90</td><td class="b3">66</td><td class="b3">66</td></tr>
-<tr><th>4（安定志向）</th><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b5">90</td><td class="b4">76</td><td class="b4">76</td><td class="b3">66</td></tr>
-<tr><th>5（自由人）</th><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td></tr>
-<tr><th>6（愛情深い世話焼き）</th><td class="b3">66</td><td class="b4">76</td><td class="b4">76</td><td class="b5">90</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td></tr>
-<tr><th>7（探究者）</th><td class="b3">66</td><td class="b3">66</td><td class="b5">90</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td></tr>
-<tr><th>8（情熱家）</th><td class="b3">66</td><td class="b5">90</td><td class="b3">66</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td></tr>
-<tr><th>9（包容力）</th><td class="b5">90</td><td class="b3">66</td><td class="b3">66</td><td class="b3">66</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td></tr>
+<tr><th>1</th><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b3">66</td><td class="b3">66</td><td class="b3">66</td><td class="b5">90</td></tr>
+<tr><th>2</th><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b3">66</td><td class="b5">90</td><td class="b3">66</td></tr>
+<tr><th>3</th><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b5">90</td><td class="b3">66</td><td class="b3">66</td></tr>
+<tr><th>4</th><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b5">90</td><td class="b4">76</td><td class="b4">76</td><td class="b3">66</td></tr>
+<tr><th>5</th><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td></tr>
+<tr><th>6</th><td class="b3">66</td><td class="b4">76</td><td class="b4">76</td><td class="b5">90</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td></tr>
+<tr><th>7</th><td class="b3">66</td><td class="b3">66</td><td class="b5">90</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td><td class="b4">76</td></tr>
+<tr><th>8</th><td class="b3">66</td><td class="b5">90</td><td class="b3">66</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td><td class="b4">76</td></tr>
+<tr><th>9</th><td class="b5">90</td><td class="b3">66</td><td class="b3">66</td><td class="b3">66</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">76</td><td class="b4">84</td></tr>
 </tbody></table></div>
  <p class="legend">スコアは運命数どうしの相性だけの目安です。四星堂の相性占いでは、西洋占星術・九星気学・タロットも合わせて総合の相性を出しています。</p>
 
