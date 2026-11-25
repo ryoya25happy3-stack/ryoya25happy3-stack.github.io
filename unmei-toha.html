@@ -70,7 +70,18 @@ details.faq{border-bottom:1px solid var(--line);padding:12px 2px}
 details.faq summary{font-weight:700;color:var(--plum);cursor:pointer}
 details.faq p{font-size:14.5px;margin:8px 0 4px}
 #sky{position:fixed;inset:0;z-index:0;pointer-events:none}
-header.site,main,footer.site{position:relative;z-index:1}
+header.site{position:relative;z-index:30}
+main,footer.site{position:relative;z-index:1}
+.hamb{margin-left:auto;background:#FFFDF6;border:1px solid #E7DCC4;border-radius:12px;width:44px;height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;flex:none;padding:0}
+.hamb span{display:block;width:20px;height:2px;background:#3A2A4C;border-radius:2px}
+.menu-panel{position:absolute;top:calc(100% + 8px);right:12px;background:#FFFDF6;border:1px solid #E7DCC4;border-radius:14px;box-shadow:0 14px 34px rgba(58,42,76,.18);padding:8px;min-width:252px;display:none;z-index:60}
+.menu-panel.open{display:block}
+.menu-panel a{display:block;padding:11px 12px;border-radius:9px;color:#3A2A4C;text-decoration:none;font-size:14.5px;font-family:"Zen Kaku Gothic New",sans-serif}
+.menu-panel a:hover{background:#FBF3DF}
+.menu-panel a.cur{color:#A87C14;font-weight:700}
+.menu-panel a.sub{font-size:12.5px;color:#8A7A9E;border-top:1px solid #EFE6CE;margin-top:4px}
+a.term{color:var(--plum);text-decoration:underline dotted;text-underline-offset:3px}
+a.asp-card{display:block;text-decoration:none;color:var(--ink)}
 .cta{background:var(--plum);border-radius:16px;padding:28px 22px;text-align:center;margin:38px 0 8px}
 .cta h2{border:none;padding:0;color:#F5EDD8;margin:0 0 8px}
 .cta p{color:#D9CBEA;font-size:14.5px}
@@ -90,6 +101,16 @@ footer.site a{color:#E9DFF7}
   <img src="images/logo-a.webp" alt="四星堂">
   <span><span class="hd-name">四星堂</span><br><span class="hd-sub">SHISEIDOU URANAI</span></span>
  </a>
+<button class="hamb" id="hamb" type="button" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="menu-panel" id="menu-panel" aria-label="サイトメニュー">
+<a href="/">トップ｜相性占い・あなたの鑑定</a>
+<a href="/tsuki-aishou.html">月星座の相性 早見表</a>
+<a href="/taiyo-aishou.html">太陽星座の相性 早見表</a>
+<a href="/unmei-aishou.html">運命数の相性 一覧</a>
+<a href="/tsuki-seiza.html">月星座とは</a>
+<a href="/unmei-toha.html">運命数とは</a>
+<a href="/legal.html" class="sub">特定商取引法に基づく表記</a>
+</nav>
 </header>
 <main>
  <p class="crumb"><a href="/">トップ</a> ＞ 運命数とは</p>
@@ -134,6 +155,9 @@ footer.site a{color:#E9DFF7}
 
  <h2>よくある質問</h2>
  <details class="faq"><summary>運命数は変わることがありますか？</summary><p>変わりません。生年月日から出す数なので、一生同じです。その時々の運気の流れは、別にパーソナルイヤーという数で読みます（四星堂の鑑定では「今年と今月の運勢」で扱っています）。</p></details><details class="faq"><summary>サイトによって計算結果が違うことがあるのは、なぜですか？</summary><p>途中の数の扱いに流派の差があるためです。代表的なのは、11・22・33をマスターナンバーとして残すかどうか。四星堂では1〜9に還元する方式で統一しています。</p></details><details class="faq"><summary>運命数で何が分かりますか？</summary><p>その人の土台の性質と、人生を通してのテーマです。恋愛の傾向や仕事の適性も、運命数から読みます。相手との相性は、2人の運命数の組み合わせで見ます。</p></details><details class="faq"><summary>運命数とバースデー数は何が違いますか？</summary><p>運命数は生年月日の全部から出す「人生のテーマ」。バースデー数は生まれた日（日にち）だけから出す数で、生まれ持った才能や得意分野を表します。四星堂の鑑定書では「生まれた日の設計図」として扱っています。</p></details>
+
+ <h2>次に見る</h2>
+ <div class="asp-grid"><a class="asp-card" href="/unmei-aishou.html"><h3>運命数の相性</h3><p>数秘術の運命数で見る、2人の相性一覧</p></a><a class="asp-card" href="/tsuki-seiza.html"><h3>月星座とは</h3><p>月星座の調べ方（無料計算）と、12星座の意味</p></a></div>
 
  <div class="cta">
   <h2>自分のことを、もっと詳しく見てみる</h2>
@@ -343,6 +367,18 @@ document.getElementById('btn-calc').addEventListener('click', function(){
   requestAnimationFrame(loop);
  }
  requestAnimationFrame(loop);
+})();
+</script>
+<script>
+(function(){
+ var b = document.getElementById('hamb'), p = document.getElementById('menu-panel');
+ if(!b || !p) return;
+ p.querySelectorAll('a').forEach(function(a){ if(a.getAttribute('href') === location.pathname) a.classList.add('cur'); });
+ function close(){ p.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }
+ b.addEventListener('click', function(e){ e.stopPropagation(); var open = p.classList.toggle('open'); b.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+ document.addEventListener('click', function(e){ if(!p.contains(e.target)) close(); });
+ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+ if(location.hash.indexOf('menu=1') >= 0){ p.classList.add('open'); b.setAttribute('aria-expanded', 'true'); }
 })();
 </script>
 </body>

@@ -70,7 +70,18 @@ details.faq{border-bottom:1px solid var(--line);padding:12px 2px}
 details.faq summary{font-weight:700;color:var(--plum);cursor:pointer}
 details.faq p{font-size:14.5px;margin:8px 0 4px}
 #sky{position:fixed;inset:0;z-index:0;pointer-events:none}
-header.site,main,footer.site{position:relative;z-index:1}
+header.site{position:relative;z-index:30}
+main,footer.site{position:relative;z-index:1}
+.hamb{margin-left:auto;background:#FFFDF6;border:1px solid #E7DCC4;border-radius:12px;width:44px;height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;flex:none;padding:0}
+.hamb span{display:block;width:20px;height:2px;background:#3A2A4C;border-radius:2px}
+.menu-panel{position:absolute;top:calc(100% + 8px);right:12px;background:#FFFDF6;border:1px solid #E7DCC4;border-radius:14px;box-shadow:0 14px 34px rgba(58,42,76,.18);padding:8px;min-width:252px;display:none;z-index:60}
+.menu-panel.open{display:block}
+.menu-panel a{display:block;padding:11px 12px;border-radius:9px;color:#3A2A4C;text-decoration:none;font-size:14.5px;font-family:"Zen Kaku Gothic New",sans-serif}
+.menu-panel a:hover{background:#FBF3DF}
+.menu-panel a.cur{color:#A87C14;font-weight:700}
+.menu-panel a.sub{font-size:12.5px;color:#8A7A9E;border-top:1px solid #EFE6CE;margin-top:4px}
+a.term{color:var(--plum);text-decoration:underline dotted;text-underline-offset:3px}
+a.asp-card{display:block;text-decoration:none;color:var(--ink)}
 .cta{background:var(--plum);border-radius:16px;padding:28px 22px;text-align:center;margin:38px 0 8px}
 .cta h2{border:none;padding:0;color:#F5EDD8;margin:0 0 8px}
 .cta p{color:#D9CBEA;font-size:14.5px}
@@ -90,11 +101,21 @@ footer.site a{color:#E9DFF7}
   <img src="images/logo-a.webp" alt="四星堂">
   <span><span class="hd-name">四星堂</span><br><span class="hd-sub">SHISEIDOU URANAI</span></span>
  </a>
+<button class="hamb" id="hamb" type="button" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="menu-panel" id="menu-panel" aria-label="サイトメニュー">
+<a href="/">トップ｜相性占い・あなたの鑑定</a>
+<a href="/tsuki-aishou.html">月星座の相性 早見表</a>
+<a href="/taiyo-aishou.html">太陽星座の相性 早見表</a>
+<a href="/unmei-aishou.html">運命数の相性 一覧</a>
+<a href="/tsuki-seiza.html">月星座とは</a>
+<a href="/unmei-toha.html">運命数とは</a>
+<a href="/legal.html" class="sub">特定商取引法に基づく表記</a>
+</nav>
 </header>
 <main>
- <p class="crumb"><a href="/">トップ</a> ＞ 運命数の相性</p>
+ <p class="crumb"><a href="/">トップ</a> ＞ <a class="term" href="/unmei-toha.html">運命数</a>の相性</p>
  <h1>運命数の相性｜組み合わせ一覧</h1>
- <p class="lead">運命数は、生年月日から出す「その人の土台の数」。数秘術では、2人の運命数の組み合わせで、関係のリズムや価値観の合い方を読みます。似た数どうしの穏やかさもあれば、足して10になる補完の強さ、差が大きい組み合わせの刺激もあります。</p>
+ <p class="lead">運命数は、生年月日から出す「その人の土台の数」。<a class="term" href="/unmei-toha.html">数秘術</a>では、2人の運命数の組み合わせで、関係のリズムや価値観の合い方を読みます。似た数どうしの穏やかさもあれば、足して10になる補完の強さ、差が大きい組み合わせの刺激もあります。</p>
  <p>あなたと相手の運命数を選んでみてください。相性スコアと読み方がその場で分かります。運命数が分からない場合は、このページの下にある「運命数の出し方」で計算できます。</p>
 
  <div class="card">
@@ -155,6 +176,9 @@ footer.site a{color:#E9DFF7}
 
  <h2>よくある質問</h2>
  <details class="faq"><summary>運命数って何ですか？</summary><p>生年月日の数字を全部足して、1けたになるまで足し続けて出る数です。その人の土台の性質や、人生のテーマを表すとされます。計算は足し算だけなので、誰でもすぐ出せます。</p></details><details class="faq"><summary>マスターナンバー（11・22・33）は扱いますか？</summary><p>流派によっては、途中で11・22・33になったら特別な数として読む方法もあります。四星堂では1〜9に還元して読む方式で、本体の鑑定とも揃えています。</p></details><details class="faq"><summary>スコアが低い組み合わせは、ダメな相性ですか？</summary><p>ダメ、ではありません。「刺激」タイプは、価値観の違いを翻訳する場面が多いという意味です。退屈とは無縁で、分かり合えた時の結びつきは強い組み合わせでもあります。</p></details><details class="faq"><summary>自分の運命数が分かりません。</summary><p>下の「運命数の出し方」で計算できます。四星堂の相性占い・あなたの鑑定では、生年月日を入れるだけで自動で計算します。</p></details>
+
+ <h2>次に見る</h2>
+ <div class="asp-grid"><a class="asp-card" href="/unmei-toha.html"><h3>運命数とは</h3><p>運命数の計算方法と、1〜9それぞれの意味</p></a><a class="asp-card" href="/tsuki-aishou.html"><h3>月星座の相性</h3><p>素の気持ちと安心のしかたで見る、月星座どうしの相性</p></a><a class="asp-card" href="/taiyo-aishou.html"><h3>太陽星座の相性</h3><p>表の顔と生き方の方向で見る、太陽星座どうしの相性</p></a></div>
 
  <div class="cta">
   <h2>2人の相性、もっと詳しく見てみる</h2>
@@ -366,6 +390,18 @@ markNum(1);
   requestAnimationFrame(loop);
  }
  requestAnimationFrame(loop);
+})();
+</script>
+<script>
+(function(){
+ var b = document.getElementById('hamb'), p = document.getElementById('menu-panel');
+ if(!b || !p) return;
+ p.querySelectorAll('a').forEach(function(a){ if(a.getAttribute('href') === location.pathname) a.classList.add('cur'); });
+ function close(){ p.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }
+ b.addEventListener('click', function(e){ e.stopPropagation(); var open = p.classList.toggle('open'); b.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+ document.addEventListener('click', function(e){ if(!p.contains(e.target)) close(); });
+ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+ if(location.hash.indexOf('menu=1') >= 0){ p.classList.add('open'); b.setAttribute('aria-expanded', 'true'); }
 })();
 </script>
 </body>

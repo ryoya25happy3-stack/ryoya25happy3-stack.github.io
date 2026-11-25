@@ -70,7 +70,18 @@ details.faq{border-bottom:1px solid var(--line);padding:12px 2px}
 details.faq summary{font-weight:700;color:var(--plum);cursor:pointer}
 details.faq p{font-size:14.5px;margin:8px 0 4px}
 #sky{position:fixed;inset:0;z-index:0;pointer-events:none}
-header.site,main,footer.site{position:relative;z-index:1}
+header.site{position:relative;z-index:30}
+main,footer.site{position:relative;z-index:1}
+.hamb{margin-left:auto;background:#FFFDF6;border:1px solid #E7DCC4;border-radius:12px;width:44px;height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;flex:none;padding:0}
+.hamb span{display:block;width:20px;height:2px;background:#3A2A4C;border-radius:2px}
+.menu-panel{position:absolute;top:calc(100% + 8px);right:12px;background:#FFFDF6;border:1px solid #E7DCC4;border-radius:14px;box-shadow:0 14px 34px rgba(58,42,76,.18);padding:8px;min-width:252px;display:none;z-index:60}
+.menu-panel.open{display:block}
+.menu-panel a{display:block;padding:11px 12px;border-radius:9px;color:#3A2A4C;text-decoration:none;font-size:14.5px;font-family:"Zen Kaku Gothic New",sans-serif}
+.menu-panel a:hover{background:#FBF3DF}
+.menu-panel a.cur{color:#A87C14;font-weight:700}
+.menu-panel a.sub{font-size:12.5px;color:#8A7A9E;border-top:1px solid #EFE6CE;margin-top:4px}
+a.term{color:var(--plum);text-decoration:underline dotted;text-underline-offset:3px}
+a.asp-card{display:block;text-decoration:none;color:var(--ink)}
 .cta{background:var(--plum);border-radius:16px;padding:28px 22px;text-align:center;margin:38px 0 8px}
 .cta h2{border:none;padding:0;color:#F5EDD8;margin:0 0 8px}
 .cta p{color:#D9CBEA;font-size:14.5px}
@@ -90,11 +101,21 @@ footer.site a{color:#E9DFF7}
   <img src="images/logo-a.webp" alt="四星堂">
   <span><span class="hd-name">四星堂</span><br><span class="hd-sub">SHISEIDOU URANAI</span></span>
  </a>
+<button class="hamb" id="hamb" type="button" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="menu-panel" id="menu-panel" aria-label="サイトメニュー">
+<a href="/">トップ｜相性占い・あなたの鑑定</a>
+<a href="/tsuki-aishou.html">月星座の相性 早見表</a>
+<a href="/taiyo-aishou.html">太陽星座の相性 早見表</a>
+<a href="/unmei-aishou.html">運命数の相性 一覧</a>
+<a href="/tsuki-seiza.html">月星座とは</a>
+<a href="/unmei-toha.html">運命数とは</a>
+<a href="/legal.html" class="sub">特定商取引法に基づく表記</a>
+</nav>
 </header>
 <main>
  <p class="crumb"><a href="/">トップ</a> ＞ 月星座とは</p>
  <h1>月星座とは｜調べ方と12星座の意味</h1>
- <p class="lead">月星座は、生まれた瞬間に月があった星座のこと。太陽星座が「表の顔・生き方の方向」を表すのに対して、月星座は「素の気持ち・感情の傾向・安心のしかた」を表します。普段は表に出にくい分、家族や恋人など、気を許した相手の前で出やすいのが月星座です。</p>
+ <p class="lead">月星座は、生まれた瞬間に月があった星座のこと。<a class="term" href="/taiyo-aishou.html">太陽星座</a>が「表の顔・生き方の方向」を表すのに対して、月星座は「素の気持ち・感情の傾向・安心のしかた」を表します。普段は表に出にくい分、家族や恋人など、気を許した相手の前で出やすいのが月星座です。</p>
 
  <div class="card">
   <p style="font-weight:700;color:var(--plum);margin-bottom:10px">あなたの月星座を調べる（無料）</p>
@@ -145,6 +166,9 @@ footer.site a{color:#E9DFF7}
 
  <h2>よくある質問</h2>
  <details class="faq"><summary>月星座は変わることがありますか？</summary><p>変わりません。月星座は生まれた瞬間に決まるもので、太陽星座と同じく一生変わらない、あなたの土台です。</p></details><details class="faq"><summary>出生時刻が分からなくても調べられますか？</summary><p>出せます。ただし月は約2.5日で星座を移るので、時刻が分からない場合は近似の計算になります。星座の境目の生まれだと、前後の星座になる可能性があります。出生時刻が分かると正確に出ます。</p></details><details class="faq"><summary>太陽星座と月星座が同じだと、どういう人ですか？</summary><p>表の顔と本音が一致している人です。裏表が少なく、気持ちの出し方がまっすぐ。周りからは「そのまんまの人」に見えやすい組み合わせです。</p></details><details class="faq"><summary>月星座で何が分かりますか？</summary><p>素の気持ちの傾向、安心できる環境、落ち込んだ時の立て直し方、恋愛で本音が出る場面の出方です。長く一緒にいる相手との相性（居心地）は、月星座どうしで見ます。</p></details>
+
+ <h2>次に見る</h2>
+ <div class="asp-grid"><a class="asp-card" href="/tsuki-aishou.html"><h3>月星座の相性</h3><p>素の気持ちと安心のしかたで見る、月星座どうしの相性</p></a><a class="asp-card" href="/unmei-toha.html"><h3>運命数とは</h3><p>運命数の計算方法と、1〜9それぞれの意味</p></a></div>
 
  <div class="cta">
   <h2>自分のことを、もっと詳しく見てみる</h2>
@@ -355,6 +379,18 @@ document.getElementById('btn-calc').addEventListener('click', function(){
   requestAnimationFrame(loop);
  }
  requestAnimationFrame(loop);
+})();
+</script>
+<script>
+(function(){
+ var b = document.getElementById('hamb'), p = document.getElementById('menu-panel');
+ if(!b || !p) return;
+ p.querySelectorAll('a').forEach(function(a){ if(a.getAttribute('href') === location.pathname) a.classList.add('cur'); });
+ function close(){ p.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }
+ b.addEventListener('click', function(e){ e.stopPropagation(); var open = p.classList.toggle('open'); b.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+ document.addEventListener('click', function(e){ if(!p.contains(e.target)) close(); });
+ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+ if(location.hash.indexOf('menu=1') >= 0){ p.classList.add('open'); b.setAttribute('aria-expanded', 'true'); }
 })();
 </script>
 </body>

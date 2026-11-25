@@ -70,7 +70,18 @@ details.faq{border-bottom:1px solid var(--line);padding:12px 2px}
 details.faq summary{font-weight:700;color:var(--plum);cursor:pointer}
 details.faq p{font-size:14.5px;margin:8px 0 4px}
 #sky{position:fixed;inset:0;z-index:0;pointer-events:none}
-header.site,main,footer.site{position:relative;z-index:1}
+header.site{position:relative;z-index:30}
+main,footer.site{position:relative;z-index:1}
+.hamb{margin-left:auto;background:#FFFDF6;border:1px solid #E7DCC4;border-radius:12px;width:44px;height:44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;flex:none;padding:0}
+.hamb span{display:block;width:20px;height:2px;background:#3A2A4C;border-radius:2px}
+.menu-panel{position:absolute;top:calc(100% + 8px);right:12px;background:#FFFDF6;border:1px solid #E7DCC4;border-radius:14px;box-shadow:0 14px 34px rgba(58,42,76,.18);padding:8px;min-width:252px;display:none;z-index:60}
+.menu-panel.open{display:block}
+.menu-panel a{display:block;padding:11px 12px;border-radius:9px;color:#3A2A4C;text-decoration:none;font-size:14.5px;font-family:"Zen Kaku Gothic New",sans-serif}
+.menu-panel a:hover{background:#FBF3DF}
+.menu-panel a.cur{color:#A87C14;font-weight:700}
+.menu-panel a.sub{font-size:12.5px;color:#8A7A9E;border-top:1px solid #EFE6CE;margin-top:4px}
+a.term{color:var(--plum);text-decoration:underline dotted;text-underline-offset:3px}
+a.asp-card{display:block;text-decoration:none;color:var(--ink)}
 .cta{background:var(--plum);border-radius:16px;padding:28px 22px;text-align:center;margin:38px 0 8px}
 .cta h2{border:none;padding:0;color:#F5EDD8;margin:0 0 8px}
 .cta p{color:#D9CBEA;font-size:14.5px}
@@ -90,11 +101,21 @@ footer.site a{color:#E9DFF7}
   <img src="images/logo-a.webp" alt="四星堂">
   <span><span class="hd-name">四星堂</span><br><span class="hd-sub">SHISEIDOU URANAI</span></span>
  </a>
+<button class="hamb" id="hamb" type="button" aria-label="メニュー" aria-expanded="false"><span></span><span></span><span></span></button>
+<nav class="menu-panel" id="menu-panel" aria-label="サイトメニュー">
+<a href="/">トップ｜相性占い・あなたの鑑定</a>
+<a href="/tsuki-aishou.html">月星座の相性 早見表</a>
+<a href="/taiyo-aishou.html">太陽星座の相性 早見表</a>
+<a href="/unmei-aishou.html">運命数の相性 一覧</a>
+<a href="/tsuki-seiza.html">月星座とは</a>
+<a href="/unmei-toha.html">運命数とは</a>
+<a href="/legal.html" class="sub">特定商取引法に基づく表記</a>
+</nav>
 </header>
 <main>
- <p class="crumb"><a href="/">トップ</a> ＞ 月星座の相性</p>
+ <p class="crumb"><a href="/">トップ</a> ＞ <a class="term" href="/tsuki-seiza.html">月星座</a>の相性</p>
  <h1>月星座の相性｜12×12組み合わせ早見表</h1>
- <p class="lead">月星座は、その人の「素の気持ち」と「安心のしかた」を表します。太陽星座の相性が生き方や第一印象の相性なら、月星座の相性は、一緒にいて落ち着けるかどうかの相性。長く一緒にいる相手ほど、この組み合わせが効いてきます。</p>
+ <p class="lead">月星座は、その人の「素の気持ち」と「安心のしかた」を表します。<a class="term" href="/taiyo-aishou.html"><a class="term" href="/taiyo-aishou.html">太陽星座</a>の相性</a>が生き方や第一印象の相性なら、月星座の相性は、一緒にいて落ち着けるかどうかの相性。長く一緒にいる相手ほど、この組み合わせが効いてきます。</p>
  <p>あなたの月星座と、相手の月星座を選んでみてください。相性スコアと、2人の読み方がその場で分かります。月星座が分からない場合は、<a href="/">四星堂の鑑定</a>で生年月日から自動で計算できます。</p>
 
  <div class="card">
@@ -127,7 +148,7 @@ footer.site a{color:#E9DFF7}
 <tr><th>水瓶座</th><td class="b5">93</td><td class="b1">51</td><td class="b5">90</td><td class="b2">61</td><td class="b5">90</td><td class="b1">54</td><td class="b5">90</td><td class="b2">58</td><td class="b5">93</td><td class="b1">54</td><td class="b5">89</td><td class="b2">61</td></tr>
 <tr><th>魚座</th><td class="b1">45</td><td class="b5">92</td><td class="b2">58</td><td class="b5">92</td><td class="b1">45</td><td class="b5">89</td><td class="b2">61</td><td class="b5">92</td><td class="b1">42</td><td class="b5">92</td><td class="b2">61</td><td class="b5">91</td></tr>
 </tbody></table></div>
- <p class="legend">スコアは月星座どうしの相性だけの目安です。四星堂の相性占いでは、太陽星座・数秘術・九星気学・タロットも合わせて総合の相性を出しています。</p>
+ <p class="legend">スコアは月星座どうしの相性だけの目安です。四星堂の相性占いでは、太陽星座・<a class="term" href="/unmei-toha.html">数秘術</a>・九星気学・タロットも合わせて総合の相性を出しています。</p>
 
  <h2>月星座ごとに見る相性</h2>
  <div id="sign-list"><section class="sign-sec" id="sec-0"><h3>月星座が牡羊座の人<span class="sel-badge">選択中</span></h3><p class="need">気持ちの切り替えが早く、寂しさを表に出さない分、実はかまってほしい牡羊座の月</p><p class="grp"><b>合</b>（心の癖がそっくり）：牡羊座（90）</p><p class="grp"><b>トライン</b>（無理なく心地いい）：獅子座（91）・射手座（91）</p><p class="grp"><b>セクスタイル</b>（違いが心地いい刺激）：双子座（93）・水瓶座（93）</p><p class="grp"><b>オポジション</b>（正反対だから惹かれる）：天秤座（90）</p><p class="grp"><b>スクエア</b>（ぶつかりやすいけど深まる）：蟹座（42）・山羊座（56）</p><p class="grp"><b>その他</b>（型にはまらない関係）：牡牛座（59）・乙女座（59）・蠍座（45）・魚座（45）</p></section>
@@ -150,6 +171,9 @@ footer.site a{color:#E9DFF7}
 
  <h2>よくある質問</h2>
  <details class="faq"><summary>月星座の相性って、何を見るものですか？</summary><p>太陽星座が「表の顔・生き方の方向」なら、月星座は「素の気持ち・安心のしかた」です。一緒にいて落ち着けるか、気を張らずにいられるか。長く一緒にいる相手ほど、この月星座どうしの相性が効いてきます。</p></details><details class="faq"><summary>自分の月星座が分かりません。</summary><p>月星座は、生まれた日と時刻で決まります。四星堂の相性占い・あなたの鑑定では、生年月日（分かれば出生時刻と出生地）を入れるだけで自動で計算します。まずはそちらで自分の月星座を出してみてください。</p></details><details class="faq"><summary>太陽星座の相性と、どっちが大事ですか？</summary><p>どちらか片方ではなく、重ねて見るのがおすすめです。第一印象や生き方の方向は太陽星座、素の居心地は月星座。四星堂の鑑定では、西洋占星術（太陽・月）・数秘術・九星気学・タロットをクロスチェックして、総合の相性を出しています。</p></details><details class="faq"><summary>スコアが低い組み合わせは、ダメな相性ですか？</summary><p>ダメ、ではありません。スコアは月星座どうしだけの目安で、低い場合は「安心のしかたが違う」という意味です。違いの出どころが分かれば、付き合い方を調整できます。ぶつかりやすい組み合わせほど、深まった時の結びつきが強いことも多いです。</p></details>
+
+ <h2>次に見る</h2>
+ <div class="asp-grid"><a class="asp-card" href="/taiyo-aishou.html"><h3>太陽星座の相性</h3><p>表の顔と生き方の方向で見る、太陽星座どうしの相性</p></a><a class="asp-card" href="/tsuki-seiza.html"><h3>月星座とは</h3><p>月星座の調べ方（無料計算）と、12星座の意味</p></a><a class="asp-card" href="/unmei-aishou.html"><h3>運命数の相性</h3><p>数秘術の運命数で見る、2人の相性一覧</p></a></div>
 
  <div class="cta">
   <h2>2人の相性、もっと詳しく見てみる</h2>
@@ -361,6 +385,18 @@ markSign(0);
   requestAnimationFrame(loop);
  }
  requestAnimationFrame(loop);
+})();
+</script>
+<script>
+(function(){
+ var b = document.getElementById('hamb'), p = document.getElementById('menu-panel');
+ if(!b || !p) return;
+ p.querySelectorAll('a').forEach(function(a){ if(a.getAttribute('href') === location.pathname) a.classList.add('cur'); });
+ function close(){ p.classList.remove('open'); b.setAttribute('aria-expanded', 'false'); }
+ b.addEventListener('click', function(e){ e.stopPropagation(); var open = p.classList.toggle('open'); b.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+ document.addEventListener('click', function(e){ if(!p.contains(e.target)) close(); });
+ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+ if(location.hash.indexOf('menu=1') >= 0){ p.classList.add('open'); b.setAttribute('aria-expanded', 'true'); }
 })();
 </script>
 </body>
